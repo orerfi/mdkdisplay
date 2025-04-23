@@ -2,10 +2,13 @@
 
 buildscript {
     repositories {
-        jcenter()
+        google()
+        mavenCentral()
+        //jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        //classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:8.9.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -14,7 +17,9 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        //jcenter()
+        google()
+        mavenCentral()
     }
 }
 
@@ -22,8 +27,8 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task wrapper(type: Wrapper) {
+//task wrapper(type: Wrapper) {
     // Version used by the wrapper. If you change this string, run "gradle wrapper" to pull down
     // the new config files.
-    gradleVersion = '2.10'
-}
+//    gradleVersion = '2.10'
+//}

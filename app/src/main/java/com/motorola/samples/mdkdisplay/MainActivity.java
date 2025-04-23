@@ -505,39 +505,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return;
         }
 
-        switch (v.getId()) {
-            case R.id.mod_external_dev_portal:
-                /** The Developer Portal link is clicked */
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.URL_DEV_PORTAL)));
-                break;
-            case R.id.mod_source_code:
-                /** The Buy Mods link is clicked */
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.URL_SOURCE_CODE)));
-                break;
-            case R.id.status_choose_image:
-                /** The Presentation Photo button is clicked */
-                selectPhoto();
-                break;
-            case R.id.status_camera:
-                /** The Selfie button is clicked */
-                onCamera();
-                break;
-            case R.id.status_clock:
-                /** The Clock button is clicked */
-                onClock();
-                break;
-            case R.id.status_clear:
-                /** The Reset button is clicked */
-                if (presentation != null) {
-                    presentation.dismiss();
-                    presentation = null;
-                }
-                Toast.makeText(this, getString(R.string.mirror_mode), Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                Log.i(Constants.TAG, "Alert: Main action not handle.");
-                break;
-        }
+        if (v.getId() == R.id.mod_external_dev_portal)
+            /** The Developer Portal link is clicked */
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.URL_DEV_PORTAL)));
+        else if (v.getId() == R.id.mod_source_code)
+            /** The Buy Mods link is clicked */
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.URL_SOURCE_CODE)));
+        else if (v.getId() == R.id.status_choose_image)
+            /** The Presentation Photo button is clicked */
+            selectPhoto();
+        else if (v.getId() == R.id.status_camera)
+            /** The Selfie button is clicked */
+            onCamera();
+        else if (v.getId() == R.id.status_clock)
+            /** The Clock button is clicked */
+            onClock();
+        else if (v.getId() == R.id.status_clear) {
+            /** The Reset button is clicked */
+            if (presentation != null) {
+                presentation.dismiss();
+                presentation = null;
+            }
+            Toast.makeText(this, getString(R.string.mirror_mode), Toast.LENGTH_SHORT).show();
+        }else
+            Log.i(Constants.TAG, "Alert: Main action not handle.");
     }
 
     /** Start Camera in mirror mode, view finder will show on mod device display screen */
