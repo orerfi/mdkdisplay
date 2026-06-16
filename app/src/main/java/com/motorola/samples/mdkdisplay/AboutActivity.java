@@ -36,6 +36,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.motorola.mod.BuildConfig;
 import com.motorola.mod.ModManager;
 
 import java.io.ByteArrayOutputStream;
